@@ -4,8 +4,10 @@ set -xe
 NP="${NP:-1}"
 BLOCK_SIZE="${BLOCK_SIZE:-1G}"
 TRANSFER_SIZE="${TRANSFER_SIZE:-16M}"
-OUTPUT_PATH="${OUTPUT_PATH:-/tmp}"
+OUTPUT_PATH="${OUTPUT_PATH:-/tmp/test_ior}"
 ITERATIONS="${ITERATIONS:-3}"
+
+rm -rf "$OUTPUT_PATH*"
 
 mpiexec --hosts localhost \
     -np $NP \
