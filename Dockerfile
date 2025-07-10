@@ -8,3 +8,7 @@ RUN apt update &&  \
     ./configure && \
     make && \
     make install
+
+COPY entrypoint.sh /
+
+ENTRYPOINT [ "/entrypoint.sh" ]
