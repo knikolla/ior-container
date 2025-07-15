@@ -12,3 +12,6 @@ RUN apt update &&  \
 
 FROM mpioperator/mpich:latest
 COPY --from=builder /usr/local/bin/ior /usr/local/bin/ior
+
+RUN groupmod -g 1001110000 mpiuser && \
+    usermod -u 1001110000 -g 1001110000 mpiuser
