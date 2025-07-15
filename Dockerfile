@@ -15,6 +15,12 @@ RUN apt update &&  \
 RUN echo "    UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config && \
     sed -i 's/#\(StrictModes \).*/\1no/g' /etc/ssh/sshd_config
 
+
+RUN mkdir /home/mpiuser && \
+    chown -R 1001:1001 /home/mpiuser
+
+USER 1001
+WORKDIR /home/mpiuser
 # COPY entrypoint.sh /
 
 # ENTRYPOINT [ "/entrypoint.sh" ]
