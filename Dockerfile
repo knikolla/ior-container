@@ -1,7 +1,7 @@
 FROM ubuntu:24.04
 
 RUN apt update &&  \
-    apt install -y mpich wget build-essential && \
+    apt install -y mpich ssh wget build-essential && \
     wget https://github.com/hpc/ior/releases/download/4.0.0/ior-4.0.0.tar.gz && \
     tar -xzvf ior-4.0.0.tar.gz && \
     cd ior-4.0.0 && \
@@ -9,6 +9,6 @@ RUN apt update &&  \
     make && \
     make install
 
-COPY entrypoint.sh /
+# COPY entrypoint.sh /
 
-ENTRYPOINT [ "/entrypoint.sh" ]
+# ENTRYPOINT [ "/entrypoint.sh" ]
